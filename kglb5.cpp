@@ -68,6 +68,25 @@ void make2d() {
     }
 }
 
+void draw_figure(HDC hdc) {
+    int i, n = 8;
+
+    MoveToEx(hdc, mas3[3][0], mas3[3][1], NULL);
+    LineTo(hdc, mas3[0][0], mas3[0][1]);
+    for (i = 0; i < 7; i++) {
+        LineTo(hdc, mas3[i + 1][0], mas3[i + 1][1]);
+
+    }
+
+    MoveToEx(hdc, mas3[7][0], mas3[7][1], NULL);
+    LineTo(hdc, mas3[4][0], mas3[4][1]);
+    for (i = 0; i < 3; i++) {
+        MoveToEx(hdc, mas3[i][0], mas3[i][1], NULL);
+        LineTo(hdc, mas3[i + 5][0], mas3[i + 5][1]);
+    }
+
+}
+
 // Отправить объявления функций, включенных в этот модуль кода:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
