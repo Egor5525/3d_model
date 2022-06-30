@@ -59,6 +59,17 @@ void multiply3d() {
     }
 }
 
+void make2d() {
+    int i, n = 8;
+    double m = M_PI;
+    double l = 140.0 / 180.0 * m;
+    double g = cos(a);
+    for (i = 0;i < n;i++) {
+        mas3[i][0] = d * mas2[i][0] / mas2[i][2] + c;
+        mas3[i][1] = d * mas2[i][1] / mas2[i][2] + q;
+        mas3[i][2] = 1;
+    }
+}
 
 // Отправить объявления функций, включенных в этот модуль кода:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
