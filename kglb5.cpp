@@ -14,6 +14,10 @@ HINSTANCE hInst;                                // текущий экземпл
 WCHAR szTitle[MAX_LOADSTRING];                  // Текст строки заголовка
 WCHAR szWindowClass[MAX_LOADSTRING];            // имя класса главного окна
 
+double c = 300, q = 300;
+double rancount = 0;
+double rancount1 = 0;
+int sw = 1, sw1 = 1;
 
 double h = 150;
 double mas1[8][4] = {
@@ -217,6 +221,89 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 return DefWindowProc(hWnd, message, wParam, lParam);
             }
         }
+    case WM_KEYDOWN: {
+        switch (wParam)
+        {
+        case VK_ADD: {
+            A += 3;
+            a = A / 180.0 * M_PI;
+            InvalidateRect(hWnd, NULL, TRUE);
+            RedrawWindow(hWnd, NULL, NULL, RDW_INVALIDATE | RDW_ERASE);
+            break;
+        }
+        case VK_RIGHT: {
+            B += 3;
+            b = B / 180.0 * M_PI;
+            InvalidateRect(hWnd, NULL, TRUE);
+            RedrawWindow(hWnd, NULL, NULL, RDW_INVALIDATE | RDW_ERASE);
+            break;
+        }
+        case VK_SUBTRACT: {
+            A -= 3;
+            a = A / 180.0 * M_PI;
+            InvalidateRect(hWnd, NULL, TRUE);
+            RedrawWindow(hWnd, NULL, NULL, RDW_INVALIDATE | RDW_ERASE);
+            break;
+        }
+        case VK_LEFT: {
+            B -= 3;
+            b = B / 180.0 * M_PI;
+            InvalidateRect(hWnd, NULL, TRUE);
+            RedrawWindow(hWnd, NULL, NULL, RDW_INVALIDATE | RDW_ERASE);
+            break;
+        }
+        case VK_UP: {
+            R += 10;
+            InvalidateRect(hWnd, NULL, TRUE);
+            RedrawWindow(hWnd, NULL, NULL, RDW_INVALIDATE | RDW_ERASE);
+            break;
+        }
+        case VK_DOWN: {
+            R -= 10;
+            InvalidateRect(hWnd, NULL, TRUE);
+            RedrawWindow(hWnd, NULL, NULL, RDW_INVALIDATE | RDW_ERASE);
+            break;
+        }
+        case VK_NUMPAD6: {
+            d += 5;
+            InvalidateRect(hWnd, NULL, TRUE);
+            UpdateWindow(hWnd);
+            break;
+        }
+        case VK_NUMPAD4: {
+            d -= 5;
+            InvalidateRect(hWnd, NULL, TRUE);
+            UpdateWindow(hWnd);
+            break;
+        }
+        case 0x41: {
+            c -= 15;
+            InvalidateRect(hWnd, NULL, TRUE);
+            UpdateWindow(hWnd);
+            break;
+        }
+        case 0x44: {
+            c += 15;
+            InvalidateRect(hWnd, NULL, TRUE);
+            UpdateWindow(hWnd);
+            break;
+        }
+        case 0x57: {
+            q -= 15;
+            InvalidateRect(hWnd, NULL, TRUE);
+            UpdateWindow(hWnd);
+            break;
+        }
+        case 0x53: {
+            q += 15;
+            InvalidateRect(hWnd, NULL, TRUE);
+            UpdateWindow(hWnd);
+            break;
+        }
+        default:
+            break;
+        }
+    }
         break;
     case WM_PAINT:
         {
